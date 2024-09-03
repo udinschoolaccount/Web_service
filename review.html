@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service IN - Review</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* CSS Styles Same as Before */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f9f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 90%;
+            width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-container {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #38a169;
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .review-container p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .button-container button {
+            background-color: #38a169;
+            color: white;
+            border: 2px solid #38a169;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .button-container button:hover {
+            background-color: #2f855a;
+            border-color: #2f855a;
+            transform: scale(1.05);
+        }
+
+        .button-container button:active {
+            transform: scale(0.98);
+        }
+
+        .back-button {
+            background-color: #e53e3e;
+            border-color: #e53e3e;
+        }
+
+        .back-button:hover {
+            background-color: #c53030;
+            border-color: #c53030;
+        }
+
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button-container button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button-container button {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #ffffff;
+            padding: 5px;
+            color: #666;
+            font-size: 1rem;
+            text-align: center;
+            border-top: 1px solid #eaeaea;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Review Pengisian Form</h1>
+        <div class="review-container" id="review-container">
+            <!-- Review content will be injected here by JavaScript -->
+        </div>
+        <div class="button-container">
+            <button type="button" class="back-button" onclick="window.history.back()">Edit</button>
+            <button type="button" onclick="submitForm()">Lanjut</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© PtrwndaaLndaaPunya, 2024</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviewContainer = document.getElementById('review-container');
+            const formData = JSON.parse(localStorage.getItem('formData'));
+            // fromData key utama
+
+            if (formData) {
+                reviewContainer.innerHTML = `
+                    <p><strong>Nomer:</strong> ${formData.nomer}</p>
+                    <p><strong>Tanggal:</strong> ${formData.tanggal}</p>
+                    <p><strong>Device:</strong> ${formData.service}</p>
+                    <p><strong>Merek:</strong> ${formData.merek}</p>
+                    <p><strong>Tipe:</strong> ${formData.tipe}</p>
+                    <p><strong>Jenis Kerusakan:</strong> ${formData.kerusakan}</p>
+                    <p><strong>Kelengkapan:</strong> ${formData.kelengkapan}</p>
+                `;
+            } else {
+                reviewContainer.innerHTML = '<p>No data available to review.</p>';
+            }
+        });
+
+        function submitForm() {
+            // Redirect to the actual submission PHP script
+            window.location.href = 'review2.html';
+        }
+    </script>
+</body>
+
+</html>

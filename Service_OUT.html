@@ -229,6 +229,17 @@
     <footer>
         <p>© PtrwndaaLndaaPunya, 2024</p>
     </footer>
+
+    <script>
+        function reviewForm() {
+            const form = document.getElementById('service-form');
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+            localStorage.setItem('formData', JSON.stringify(data));
+            window.location.href = 'review.html';
+        }
+    </script>
 </body>
 
 </html>
