@@ -168,13 +168,13 @@
 <body>
     <div class="container">
         <h1>Form Servis Masuk</h1>
-        <form id="service-form" name="">
+        <form id="service-form" name="serviceForm">
             <label for="nomer">Nomer</label>
             <input type="text" id="nomer" name="nomer" required>
-
+        
             <label for="tanggal">Tanggal</label>
             <input type="date" id="tanggal" name="tanggal" required>
-
+        
             <label for="service">Device</label>
             <select id="service" name="service" required>
                 <option value="" disabled selected>Pilih Device</option>
@@ -183,18 +183,22 @@
                 <option value="Print">Print</option>
                 <option value="Handphone">Handphone</option>
             </select>
-
+        
             <label for="merek">Merek</label>
             <input type="text" id="merek" name="merek" required>
-
+        
             <label for="tipe">Tipe</label>
             <input type="text" id="tipe" name="tipe" required>
-
+        
             <label for="jenis-kerusakan">Jenis Kerusakan</label>
             <input type="text" id="jenis-kerusakan" name="kerusakan" required>
-
+        
             <label for="kelengkapan">Kelengkapan</label>
             <input type="text" id="kelengkapan" name="kelengkapan" required>
+        
+            <button type="submit">Kirim</button>
+        </form>
+        
 
             <div class="button-container">
                 <button type="button" class="back-button"
